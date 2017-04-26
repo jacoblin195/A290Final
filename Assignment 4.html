@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Assignment 4</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
+<script src="bootstrap/js/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<img src="frame.png" id="MainImg">
+			<button class = "btn btn-success btn-sm pull-right" id="PlayButton" onclick="play()">PLAY</button>
+		</div>
+	</div>
+	<div class="row">
+	<div class="table-Wrapper">
+		<table style="">
+			<tr>
+				<td>
+				<div class="smallPicFrame">
+				<img src="animal.jpg" class="smallPic">
+					<p>Mammals</p>
+					</div>
+				</td>
+				<td>
+				<div class="smallPicFrame">
+				<img src="animal.jpg" class="smallPic">
+					<p>Mammals</p>
+					</div>
+				</td>
+				
+				<td>
+				<div class="smallPicFrame">
+				<img src="animal.jpg" class="smallPic">
+					<p>Mammals</p>
+					</div>
+				</td>
+				
+				<td>
+				<div class="smallPicFrame">
+				<img src="animal.jpg" class="smallPic">
+					<p>Mammals</p>
+					</div>
+				</td>
+				
+				<td>
+				<div class="smallPicFrame">
+				<img src="animal.jpg" class="smallPic">
+					<p>Mammals</p>
+					</div>
+				</td>
+				
+				<td>
+				<div class="smallPicFrame">
+				<img src="animal.jpg" class="smallPic">
+					<p>Mammals</p>
+					</div>
+				</td>
+			</tr>
+		</table>
+		</div>
+	</div>
+
+
+</div>
+	<style>
+	#PlayButton{
+		text-align: right;
+		bottom: -100px;
+		right: 0;
+		z-index: 100;
+	}
+	.row{
+		padding-left: 25%;
+		padding-right: 25%;
+	}
+	
+	#MainImg{
+		width: 100%;
+		background-image: url(animal.jpg);
+		background-size: cover;
+	}
+	.smallPicFrame{
+		text-align: center;
+	}
+	.smallPic{
+		width: 100%;
+	}
+	.table-Wrapper{
+		overflow-x: scroll;
+	}
+	tr{
+		overflow: hidden;
+	}
+	th, td { min-width: 200px; 
+	}
+</style>
+<script>
+
+function play(){
+  // play the audio part
+  var audio = new Audio('play.ogg');
+  audio.play();
+
+  // filled the word in id 'ram_animal'
+
+
+  document.getElementById('select_animal').style.display = "block";
+}
+	</script>
+</body>
+</html>
