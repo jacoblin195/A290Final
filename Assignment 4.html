@@ -14,9 +14,13 @@
 <body>
 <div class="container">
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-12" style="text-align: right;">
+			
 			<img src="frame.png" id="MainImg">
-			<button class = "btn btn-success btn-sm pull-right" id="PlayButton" onclick="play()">PLAY</button>
+			<div id="button-Wrapper">
+				<button id="PlayButton" onclick="play()">PLAY</button>
+			
+			</div>
 		</div>
 	</div>
 	<div class="row">
@@ -72,9 +76,16 @@
 </div>
 	<style>
 	#PlayButton{
+		padding: 1.5em;
+		margin-right: 2em;
 		text-align: right;
-		bottom: -100px;
-		right: 0;
+		background-color: green;
+		color: white;
+		font-weight: bold;
+		bottom: 6em;
+		position: relative;
+		right: 0px;
+		
 		z-index: 100;
 	}
 	.row{
@@ -101,6 +112,12 @@
 	}
 	th, td { min-width: 200px; 
 	}
+	#button-Wrapper{
+			align-content: center;
+			text-align: right;
+			width: 100%;
+			height: 0px;
+		}
 </style>
 <script>
 
