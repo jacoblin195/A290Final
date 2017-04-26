@@ -25,13 +25,13 @@
 	</div>
 	<div class="row">
 	<div class="table-Wrapper">
-		<table style="">
+		<table id="table">
 			<tr>
 				<td>
 				<div class="smallPicFrame">
 				<img src="animal.jpg" class="smallPic">
 					<p>Mammals</p>
-					</div>
+				</div>
 				</td>
 				<td>
 				<div class="smallPicFrame">
@@ -107,17 +107,40 @@
 	.table-Wrapper{
 		overflow-x: scroll;
 	}
+	table{
+		background-color: black;
+		padding-top: 2em;
+		padding-bottom: 2em;
+		padding-left: 1em;
+		padding-right: 1em;
+		border-top-width: 1em;
+		border-bottom-width: 1em;
+		border-color: white;
+		border-style: dotted;
+		
+		border-left: none;
+		border-right: none;
+		
+		border-collapse: separate;
+        border-spacing: 20px;
+		
+	}
 	tr{
 		overflow: hidden;
+		background-color: white;
 	}
 	th, td { min-width: 200px; 
+		
+	}
+	td{
+		margin-right: 100px;
 	}
 	#button-Wrapper{
 			align-content: center;
 			text-align: right;
 			width: 100%;
 			height: 0px;
-		}
+	}
 </style>
 <script>
 
@@ -132,5 +155,23 @@ function play(){
   document.getElementById('select_animal').style.display = "block";
 }
 	</script>
+	<script>
+		var curYPos, curXPos, curDown;
+
+window.addEventListener('mousemove', function(e){ 
+  if(curDown){
+    window.scrollTo(document.body.scrollLeft + (curXPos - e.pageX), document.body.scrollTop + (curYPos - e.pageY));
+  }
+});
+
+window.addEventListener('mousedown', function(e){ 
+  curYPos = e.pageY; 
+  curXPos = e.pageX; 
+  curDown = true; 
+});
+
+window.addEventListener('mouseup', function(e){ 
+  curDown = false; 
+});</script>
 </body>
 </html>
