@@ -29,42 +29,42 @@
 			<tr>
 				<td>
 				<div class="smallPicFrame">
-				<img src="animal.jpg" class="smallPic">
+				<img src="Mammals.jpg" class="smallPic" id="Mammals" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
 					<p>Mammals</p>
 				</div>
 				</td>
 				<td>
 				<div class="smallPicFrame">
-				<img src="animal.jpg" class="smallPic">
-					<p>Mammals</p>
+				<img src="Birds.jpg" class="smallPic" id="Birds" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
+					<p>Birds</p>
 					</div>
 				</td>
 				
 				<td>
 				<div class="smallPicFrame">
-				<img src="animal.jpg" class="smallPic">
-					<p>Mammals</p>
+				<img src="Fish.jpg" class="smallPic" id="Fish" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
+					<p>Fish</p>
 					</div>
 				</td>
 				
 				<td>
 				<div class="smallPicFrame">
-				<img src="animal.jpg" class="smallPic">
-					<p>Mammals</p>
+				<img src="Reptiles.jpg" class="smallPic" id="Reptiles" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
+					<p>Reptiles</p>
 					</div>
 				</td>
 				
 				<td>
 				<div class="smallPicFrame">
-				<img src="animal.jpg" class="smallPic">
-					<p>Mammals</p>
+				<img src="Amphibians.jpg" class="smallPic" id="Amphibians" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
+					<p>Amphibians</p>
 					</div>
 				</td>
 				
 				<td>
 				<div class="smallPicFrame">
-				<img src="animal.jpg" class="smallPic">
-					<p>Mammals</p>
+				<img src="Arthropods.jpg" class="smallPic" id="Arthropods" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
+					<p>Arthropods</p>
 					</div>
 				</td>
 			</tr>
@@ -89,13 +89,14 @@
 		z-index: 100;
 	}
 	.row{
+		margin:0px;
 		padding-left: 25%;
 		padding-right: 25%;
 	}
 	
 	#MainImg{
 		width: 100%;
-		background-image: url(animal.jpg);
+		background-image: url();
 		background-size: cover;
 	}
 	.smallPicFrame{
@@ -145,34 +146,59 @@
 </style>
 <script>
 
-function play(){
-  // play the audio part
-  var audio = new Audio('play.ogg');
-  audio.play();
+	function play(){
+		if(!onPlay){
+  		// play the audio part
+			onPlay=true;
+		var audio = new Audio('play.ogg');
+  			audio.play();
+			audio.onended=function(){
+				onPlay=false;
+			}
+		}
+	}
+	
+	var onPlay=false;
+	
+	// This global variable controls the playing of the audio
+	// It is set up to prevent run-on audios.
+	// However, the audios are not cut precisely.
+	// There may be a little bit delayed before onPlay allows the next audio to play.
+	
+	function playWhat(name){
+			if(!onPlay){
+			onPlay=true;
+			var aud1 = new Audio("YouChoose.ogg");
+			var aud2 = new Audio(name+'.ogg');
+			var aud3 = new Audio("what.ogg");
+			aud1.play();
+			aud1.onended=function(){
+				aud2.play();
+				aud2.onended=function(){
+					aud3.play();
+					aud3.onended=function(){
+						onPlay=false;
+					}
+				}
+			}
+			}
+	}
+	
+	
+	function hover(name){
+		if(!onPlay){
+				onPlay=true;
+				var aud = new Audio(name+'.ogg');
+				aud.play();
+				aud.onended=function(){
+					onPlay=false;
+				}
+		}
+	}
 
-  // filled the word in id 'ram_animal'
-
-
-  document.getElementById('select_animal').style.display = "block";
-}
+						   
+</script>
+<script>
 	</script>
-	<script>
-		var curYPos, curXPos, curDown;
-
-window.addEventListener('mousemove', function(e){ 
-  if(curDown){
-    window.scrollTo(document.body.scrollLeft + (curXPos - e.pageX), document.body.scrollTop + (curYPos - e.pageY));
-  }
-});
-
-window.addEventListener('mousedown', function(e){ 
-  curYPos = e.pageY; 
-  curXPos = e.pageX; 
-  curDown = true; 
-});
-
-window.addEventListener('mouseup', function(e){ 
-  curDown = false; 
-});</script>
 </body>
 </html>
