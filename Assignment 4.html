@@ -29,41 +29,41 @@
 			<tr>
 				<td>
 				<div class="smallPicFrame">
-				<img src="Mammals.jpg" class="smallPic" id="Mammals" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
+				<img src="pic/Mammals.jpg" class="smallPic" id="Mammals" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
 					<p>Mammals</p>
 				</div>
 				</td>
 				<td>
 				<div class="smallPicFrame">
-				<img src="Birds.jpg" class="smallPic" id="Birds" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
+				<img src="pic/Birds.jpg" class="smallPic" id="Birds" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
 					<p>Birds</p>
 					</div>
 				</td>
 				
 				<td>
 				<div class="smallPicFrame">
-				<img src="Fish.jpg" class="smallPic" id="Fish" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
+				<img src="pic/Fish.jpg" class="smallPic" id="Fish" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
 					<p>Fish</p>
 					</div>
 				</td>
 				
 				<td>
 				<div class="smallPicFrame">
-				<img src="Reptiles.jpg" class="smallPic" id="Reptiles" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
+				<img src="pic/Reptiles.jpg" class="smallPic" id="Reptiles" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
 					<p>Reptiles</p>
 					</div>
 				</td>
 				
 				<td>
 				<div class="smallPicFrame">
-				<img src="Amphibians.jpg" class="smallPic" id="Amphibians" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
+				<img src="pic/Amphibians.jpg" class="smallPic" id="Amphibians" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
 					<p>Amphibians</p>
 					</div>
 				</td>
 				
 				<td>
 				<div class="smallPicFrame">
-				<img src="Arthropods.jpg" class="smallPic" id="Arthropods" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
+				<img src="pic/Arthropods.jpg" class="smallPic" id="Arthropods" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
 					<p>Arthropods</p>
 					</div>
 				</td>
@@ -169,7 +169,7 @@
 			if(!onPlay){
 			onPlay=true;
 			var aud1 = new Audio("YouChoose.ogg");
-			var aud2 = new Audio(name+'.ogg');
+			var aud2 = new Audio("aud/"+name+'.ogg');
 			var aud3 = new Audio("what.ogg");
 			aud1.play();
 			aud1.onended=function(){
@@ -188,7 +188,7 @@
 	function hover(name){
 		if(!onPlay){
 				onPlay=true;
-				var aud = new Audio(name+'.ogg');
+				var aud = new Audio("aud/"+name+'.ogg');
 				aud.play();
 				aud.onended=function(){
 					onPlay=false;
