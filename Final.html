@@ -1,0 +1,304 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Final Project</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
+<script src="bootstrap/js/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<!-- The Frame -->
+<body>
+<div class="container">
+	<div class="row">
+		<div style="text-align: center">
+		<div class="questionFrame" style = "position: relative;">
+			<img src="images/frame.png" id="MainImg">
+			<img class="questionPic" id="animalImg">
+		</div>
+			<div id="button-Wrapper">
+				<button id="PlayButton" onclick="play()">PLAY</button>
+			</div>
+		</div>
+	</div>
+
+<!-- The select animal button -->
+	<div id="select_animal" class="selectButtons" style = "display: none">
+		<button onMouseOver="hover(this.id)" onclick="selectAnimal(this.id)" class ='animal1'>
+			<p id = 'ram_animal_1'></p>
+		</button>
+		<button onMouseOver="hover(this.id)" onclick="selectAnimal(this.id)" class ='animal2'>
+			<p id = 'ram_animal_2'></p>
+		</button>
+		<button onMouseOver="hover(this.id)" onclick="selectAnimal(this.id)" class ='animal3'>
+			<p id = 'ram_animal_3'></p>
+		</button>
+	</div>
+
+	<!-- The select row table -->
+	<div class="row">
+	<div class="table-Wrapper">
+		<table id="table">
+			<tr>
+				<td>
+				<div class="smallPicFrame">
+				<img src="images/Mammals.jpg" class="smallPic" id="Mammals" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
+					<p>Mammals</p>
+				</div>
+				</td>
+
+				<td>
+				<div class="smallPicFrame">
+				<img src="images/Birds.jpg" class="smallPic" id="Birds" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
+					<p>Birds</p>
+					</div>
+				</td>
+
+				<td>
+				<div class="smallPicFrame">
+				<img src="images/Fish.jpg" class="smallPic" id="Fish" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
+					<p>Fish</p>
+					</div>
+				</td>
+
+				<td>
+				<div class="smallPicFrame">
+				<img src="images/Reptiles.jpg" class="smallPic" id="Reptiles" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
+					<p>Reptiles</p>
+					</div>
+				</td>
+
+				<td>
+				<div class="smallPicFrame">
+				<img src="images/Amphibians.jpg" class="smallPic" id="Amphibians" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
+					<p>Amphibians</p>
+					</div>
+				</td>
+
+				<td>
+				<div class="smallPicFrame">
+				<img src="images/Arthropods.jpg" class="smallPic" id="Arthropods" onMouseOver="hover(this.id)" onClick="playWhat(this.id)">
+					<p>Arthropods</p>
+					</div>
+				</td>
+			</tr>
+		</table>
+		</div>
+	</div>
+</div>
+
+<!-- The CSS style -->
+	<style>
+	#PlayButton{
+		padding: 1.5em;
+		margin-right: 2em;
+		text-align: right;
+		background-color: green;
+		color: white;
+		font-weight: bold;
+		bottom: 6em;
+		position: relative;
+		right: 0px;
+		z-index: 100;
+	}
+	.row{
+		margin:0px;
+		padding-left: 25%;
+		padding-right: 25%;
+	}
+
+	#MainImg{
+		width: 100%;
+		background-image: url();
+		background-size: cover;
+		background: url(imageURL);
+		position: relative;
+	}
+	#animalImg{
+		position: absolute;
+		top: 57px;
+		left: 54px;
+		text-align: center;
+		width: 81%;
+		height: 72%;
+	}
+	.smallPicFrame{
+		text-align: center;
+	}
+	.smallPic{
+		width: 100%;
+	}
+	.selectButtons{
+		text-align: center;
+	}
+	.table-Wrapper{
+		overflow-x: scroll;
+		padding: 1.5em;
+		background-color: black;
+	}
+	table{
+		font: 1em;
+		background-color: black;
+		padding-top: 1em;
+		padding-bottom: 1em;
+		padding-left: 1%;
+		padding-right: 1%;
+		border-top-width: 1.6vw;
+		border-bottom-width: 1.6vw;
+		border-color: white;
+		border-style: dotted;
+
+		border-left: none;
+		border-right: none;
+
+		border-collapse: separate;
+    border-spacing: .8em;
+	}
+	tr{
+		overflow: hidden;
+		background-color: white;
+	}
+	th, td {
+		min-width: 180px;
+
+	}
+	#button-Wrapper{
+			align-content: center;
+			text-align: right;
+			width: 100%;
+			height: 0px;
+	}
+</style>
+
+<script>
+	var onPlay=false;
+
+	// The play botton function
+	function play(){
+		if(!onPlay){
+  		// play the audio part
+			onPlay=true;
+		var audio = new Audio('audios/play.ogg');
+  			audio.play();
+			audio.onended=function(){
+				onPlay=false;
+			}
+		}
+	}
+
+	// This global variable controls the playing of the audio
+	// It is set up to prevent run-on audios.
+	// However, the audios are not cut precisely.
+	// There may be a little bit delayed before onPlay allows the next audio to play.
+
+	function playWhat(name){
+			if(!onPlay){
+			onPlay=true;
+			var aud1 = new Audio("audios/YouChoose.ogg");
+			var aud2 = new Audio("audios/" + name+'.ogg');
+			var aud3 = new Audio("audios/what.ogg");
+			aud1.play();
+			aud1.onended=function(){
+				aud2.play();
+				aud2.onended=function(){
+					aud3.play();
+					aud3.onended=function(){
+						onPlay=false;
+					}
+				}
+			}
+		}
+		chooseWhat(name);
+	}
+
+	function hover(name){
+		if(!onPlay){
+				onPlay=true;
+				var aud = new Audio("audios/"+name+'.ogg');
+				aud.play();
+				aud.onended=function(){
+					onPlay=false;
+				}
+		}
+	}
+	// The de-facto unbiased shuffle algorithm is the Fisher-Yates (aka Knuth) Shuffle.
+	// Code from: http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+	function shuffle(array) {
+	  var currentIndex = array.length, temporaryValue, randomIndex;
+
+	  // While there remain elements to shuffle...
+	  while (0 !== currentIndex) {
+
+	    // Pick a remaining element...
+	    randomIndex = Math.floor(Math.random() * currentIndex);
+	    currentIndex -= 1;
+
+	    // And swap it with the current element.
+	    temporaryValue = array[currentIndex];
+	    array[currentIndex] = array[randomIndex];
+	    array[randomIndex] = temporaryValue;
+	  }
+
+	  return array;
+	}
+
+	var map = {
+		"Mammals": ['Dog', 'Cat', 'Fox'],
+		"Birds": ['Vulture', 'Hummingbird', 'Falcon'],
+		"Fish" : ['Goldfish', 'Swordfish', 'Shark'],
+		"Reptiles" : ['Snake', 'Alligator', 'Lizard'],
+		"Amphibians" : ['Frog', 'Salamander', 'Caecilian'],
+		"Arthropods" : ['Crab', 'Butterfly', 'Scorpiones']
+	}
+
+	// The step after clicks the pictures
+	function chooseWhat(name){
+		// Append a image
+		animalList = map[name];
+		animal = animalList[Math.floor(Math.random() * animalList.length)];
+		// add the picture element on the page.
+		var elem = document.createElement("img");
+		elem = "images/" + animal + '.jpeg';
+		document.getElementById("animalImg").src = elem;
+		// Random shuffle list.
+		var buttonList = shuffle(map[name]);
+		// Filled the button, and assign the buttons with id by giving names
+		document.getElementById('ram_animal_1').innerHTML = buttonList[0];
+		document.getElementsByClassName('animal1').id = str(buttonList[0]);
+		console.log(document.getElementsByClassName('animal1').id);
+
+	  document.getElementById('ram_animal_2').innerHTML = buttonList[1];
+		document.getElementsByClassName('animal2').id = str(buttonList[1]);
+		console.log(document.getElementsByClassName('animal2').id);
+
+	  document.getElementById('ram_animal_3').innerHTML = buttonList[2];
+		document.getElementsByClassName('animal3').id = str(buttonList[2]);
+		console.log(document.getElementsByClassName('animal3').id);
+
+		// make the buttons shows up.
+	  document.getElementById('select_animal').style.display = "block";
+	}
+
+	function selectAnimal(animal){
+		var answer;
+		if(document.getElementById('animalImg').src !== ''){
+			answer = document.getElementById('animalImg').src;
+		}
+		// var rgx = '(?='+  +')\w+(?!=.jpg)'; // 试着将answer转成一个词，使用正则表达式
+		console.log("The answer is " + answer);
+	}
+
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>
